@@ -18,16 +18,5 @@ server.listen(porta, () => {
 	console.log(`Servidor rodando na porta ${porta}.`);
 });
 
-server.use((req, res, next) => {
-	//res.send("<h1>Funcionou</h1>");
-	console.log("Middleware1");
-	next();
-});
-
-server.use((req, res, next) => {
-	res.send("<h1>Funcionou</h1>");
-});
-
-
 module.exports = server;
 
