@@ -7,4 +7,6 @@ module.exports = function(servidor){
 	//rotas da api
 	const billingCycleService = require('../api/billingCycle/billingCycleServices');
 	billingCycleService.register(router, "/billingCycles"); //a api vai ser chamada quando tiver billingCycles
+	const billingCycleSummaryService = require("../api/billingSummary/billingSummaryServices");
+	router.route("/billingSummary").get(billingCycleSummaryService.getSumario)
 };
