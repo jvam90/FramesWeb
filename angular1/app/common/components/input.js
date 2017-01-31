@@ -6,7 +6,8 @@
             grid:"@",
             placeholder:"@",
             type:"@",
-            model:"="
+            model:"=",
+            readonly: "<"
         },
         controller: [
             'gridSystem',
@@ -15,14 +16,14 @@
                     this.gridClasses = gridSystem.toCSSClasses(this.grid);
                 }
             }
-        ],        
-        template: `            
+        ],
+        template: `
         <div class="{{$ctrl.gridClasses}}">
             <div class="form-group">
                 <label for="{{$ctrl.id}}">{{$ctrl.label}}:</label>
-                <input ng-model="$ctrl.model" class="form-control" id="{{$ctrl.id}}" placeholder="{{$ctrl.placeholder}}" type="{{$ctrl.type}}">
+                <input ng-model="$ctrl.model" ng-readonly="$ctrl.readonly" class="form-control" id="{{$ctrl.id}}" placeholder="{{$ctrl.placeholder}}" type="{{$ctrl.type}}">
             </div>
-        </div>            
+        </div>
         `
     });
 })();

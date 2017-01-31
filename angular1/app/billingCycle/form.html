@@ -1,13 +1,41 @@
 <div role="form">
     <div class="box-body">
-        <custom-input model="ctrl.ciclo.nome" id="nome" label="Nome" placeholder="Informe o nome" type="text" grid="4"></custom-input>       
-        <custom-input model="ctrl.ciclo.mes" id="mes" label="Mês" placeholder="Informe o mês" type="number" grid="4"></custom-input>       
-        <custom-input model="ctrl.ciclo.ano" id="ano" label="Ano" placeholder="Informe o ano" type="number" grid="4"></custom-input>       
+        <custom-input model="ctrl.ciclo.nome" readOnly="ctrl.tabDelete" id="nome" label="Nome" placeholder="Informe o nome" type="text" grid="4"></custom-input>
+        <custom-input model="ctrl.ciclo.mes" readOnly="ctrl.tabDelete" id="mes" label="Mês" placeholder="Informe o mês" type="number" grid="4"></custom-input>
+        <custom-input model="ctrl.ciclo.ano" readOnly="ctrl.tabDelete" id="ano" label="Ano" placeholder="Informe o ano" type="number" grid="4"></custom-input>
+
+        <div class="col-xs-12">
+          <fieldset>
+            <legend>Resumo</legend>
+            <div ng-include="'billingCycle/sumario.html'">
+
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+          <fieldset>
+            <legend>Créditos</legend>
+            <div ng-include="'billingCycle/creditList.html'">
+
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+          <fieldset>
+            <legend>Débitos</legend>
+            <div ng-include="'billingCycle/debitList.html'">
+
+            </div>
+          </fieldset>
+        </div>
+
     </div>
     <div class="box-footer">
-        <button class="btn btn-primary" ng-click="ctrl.create()">Incluir</button>
-        <button class="btn btn-infom">Alterar</button>
-        <button class="btn btn-danger">Excluir</button>
-        <button class="btn btn-default">Excluir</button>
+        <button ng-if="ctrl.tabCreate" class="btn btn-primary" ng-click="ctrl.create()">Incluir</button>
+        <button ng-if="ctrl.tabUpdate" class="btn btn-info" ng-click="ctrl.update(ctrl.ciclo)">Alterar</button>
+        <button ng-if="ctrl.tabDelete" class="btn btn-danger" ng-click="ctrl.delete(ctrl.ciclo)">Excluir</button>
+        <button class="btn btn-default" ng-click="ctrl.refresh()">Cancelar</button>
     </div>
 </div>
